@@ -27,14 +27,6 @@ namespace MagibitSensor {
     }
 
     /**
-     * 定义项目中使用的内部数据类型
-     */
-    export enum InnerNumberType {
-        ANALOG,
-        DIGITAL
-    }
-
-    /**
      * change motor's speed and direction
      */
     //% blockId=magibit_sensor_motor_set_speed
@@ -43,7 +35,7 @@ namespace MagibitSensor {
     //% speed.min=0 speed.max=1023
     export function motorSetSpeed(motor: Motor, direction: MotorDirection, speed: number): void {
 
-        speed = filterInnerTypeNumber(InnerNumberType.ANALOG, speed);
+        speed = MagibitActuator.filterInnerTypeNumber(MagibitActuator.InnerNumberType.ANALOG, speed);
 
         if (motor == Motor.M1) {
             pins.digitalWritePin(DigitalPin.P8, direction);
@@ -75,7 +67,7 @@ namespace MagibitSensor {
     //% brightness.min=0 brightness.max=1023
     export function ledSetBrightness(pin: LEDPin, brightness: number): void {
 
-        brightness = filterInnerTypeNumber(InnerNumberType.ANALOG, brightness);
+        brightness = MagibitActuator.filterInnerTypeNumber(MagibitActuator.InnerNumberType.ANALOG, brightness);
 
         switch (pin) {
             case LEDPin.P0:
@@ -110,33 +102,6 @@ namespace MagibitSensor {
             case LEDState.OFF:
                 ledSetBrightness(pin, 0);
                 break;
-        }
-    }
-
-    /**
-     * 项目内部的数据类型非法制过滤
-     * @param {MagibitSensor.InnerNumberType} innerType
-     * @param {number} analogNumber
-     * @returns {number}
-     */
-    function filterInnerTypeNumber(innerType: InnerNumberType, analogNumber: number): number {
-        switch (innerType) {
-            case InnerNumberType.ANALOG: {
-                if (analogNumber < 0 || analogNumber == null) {
-                    return 0;
-                } else if (analogNumber > 1023) {
-                    return 1023;
-                } else {
-                    return analogNumber;
-                }
-            }
-            case InnerNumberType.DIGITAL: {
-                if (analogNumber < 0 || analogNumber == null) {
-                    return 0;
-                } else {
-                    return analogNumber;
-                }
-            }
         }
     }
 

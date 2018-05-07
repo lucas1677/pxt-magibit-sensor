@@ -1,19 +1,20 @@
 {
-    "name": "MagibitActuator",
-    "version": "18.507.1",
-    "description": "AdaFruit MagibitActuator driver",
+    "name": "MagibitSensor",
+    "version": "18.607.1",
+    "description": "MagibitSensor project",
     "license": "MIT",
     "dependencies": {
-        "core": "*"
+        "core": "*",
+        "MagibitActuator": "github:lucas1677/pxt-magibit-actuator#v18.507.2"
     },
     "files": [
         "README.md",
-        "MagibitActuator.ts",
-        "_locales/ja/MagibitActuator-strings.json",
-        "_locales/zh/MagibitActuator-strings.json"
+        "MagibitSensor.ts",
+        "_locales/ja/MagibitSensor-strings.json",
+        "_locales/zh/MagibitSensor-strings.json"
     ],
     "testFiles": [
-        "MagibitActuatorTest.ts"
+        "MagibitSensorTest.ts"
     ],
     "yotta": {
         "config": {
