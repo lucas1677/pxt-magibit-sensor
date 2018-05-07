@@ -1,0 +1,28 @@
+{
+    "name": "MagibitActuator",
+    "version": "18.507.1",
+    "description": "AdaFruit MagibitActuator driver",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "MagibitActuator.ts",
+        "_locales/ja/MagibitActuator-strings.json",
+        "_locales/zh/MagibitActuator-strings.json"
+    ],
+    "testFiles": [
+        "MagibitActuatorTest.ts"
+    ],
+    "yotta": {
+        "config": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "enabled": 0
+                }
+            }
+        }
+    },
+    "public": true
+}
