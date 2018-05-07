@@ -5,7 +5,7 @@
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "MagibitActuator": "github:lucas1677/pxt-magibit-actuator#v18.507.2"
+        "MagibitActuator": "github:lucas1677/pxt-magibit-actuator#v18.507.11"
     },
     "files": [
         "README.md",
