@@ -4,8 +4,7 @@
     "description": "MagibitSensor project",
     "license": "MIT",
     "dependencies": {
-        "core": "*",
-        "MagibitActuator": "github:lucas1677/pxt-magibit-actuator#v18.507.11"
+        "core": "*"
     },
     "files": [
         "README.md",
