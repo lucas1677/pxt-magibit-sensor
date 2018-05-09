@@ -32,6 +32,8 @@ namespace MagibitSensor {
                 return pins.analogReadPin(AnalogPin.P1);
             case LightSensorPins.P2:
                 return pins.analogReadPin(AnalogPin.P2);
+            default:
+                return 0;
         }
     }
 
