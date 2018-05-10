@@ -27,6 +27,11 @@ namespace MagibitSensor {
         P16
     }
 
+    export enum UltrasonicSensorPins {
+        P13,
+        P16
+    }
+
     /**
      * read light sensor's value
      * @param pin sensor's active pin
@@ -108,6 +113,46 @@ namespace MagibitSensor {
                 return 0;
         }
     }
+
+    /**
+     * read ultrasonic sensor's value (unit: cm)
+     * @param pin sensor's active pin
+     * @return number returns number value (unit: cm)
+     */
+    //% blockId=magibit_sensor_ultrasonic_read
+    //% block="Ultrasonic sensor read distance(cm) at |%pin|"
+    //% weight=80
+    export function UltrasonicSensorReadValue(pin: UltrasonicSensorPins): number {
+        switch (pin) {
+            case UltrasonicSensorPins.P13:
+                return 0;
+            case UltrasonicSensorPins.P16:
+                return 0;
+            default:
+                return 0;
+        }
+    }
+
+    /**
+     * read motor speed sensor's value
+     * @param pin sensor's active pin
+     * @return number returns digital value from 0 to 1
+     */
+    //% blockId=magibit_sensor_motor_speed_read
+    //% block="Motor speed read digital at |%pin|"
+    //% weight=80
+    export function MotorSpeedSensorReadValue(pin: InfraredSensorPins): number {
+        switch (pin) {
+            case InfraredSensorPins.P13:
+                return pins.digitalReadPin(DigitalPin.P13);
+            case InfraredSensorPins.P16:
+                return pins.digitalReadPin(DigitalPin.P16);
+            default:
+                return 0;
+        }
+    }
+
+
 
 
 }
