@@ -43,6 +43,11 @@ namespace MagibitSensor {
         P2
     }
 
+    export enum Joystick {
+        A1,
+        A2
+    }
+
     /**
      * read light sensor's value
      * @param pin sensor's active pin
@@ -230,5 +235,64 @@ namespace MagibitSensor {
         }
     }
 
+    /**
+     * read joystick sensor's x value
+     * @param joystick selected joystick sensor
+     * @return number returns analog value from 0 to 1000
+     */
+    //% blockId=magibit_sensor_joystick_x_read
+    //% block="Position of x-axis in |%joystick|"
+    //% weight=80
+    export function joystickReadXValue(joystick: Joystick): number {
+        switch (joystick) {
+            case Joystick.A1:
+                return pins.analogReadPin(AnalogPin.P1);
+            case Joystick.A2:
+                return pins.analogReadPin(AnalogPin.P0);
+            default:
+                return 0;
+        }
+    }
+
+    /**
+     * read joystick sensor's y value
+     * @param joystick selected joystick sensor
+     * @return number returns analog value from 0 to 1000
+     */
+    //% blockId=magibit_sensor_joystick_y_read
+    //% block="Position of y-axis in |%joystick|"
+    //% weight=80
+    export function joystickReadYValue(joystick: Joystick): number {
+        switch (joystick) {
+            case Joystick.A1:
+                return pins.analogReadPin(AnalogPin.P2);
+            case Joystick.A2:
+                return pins.analogReadPin(AnalogPin.P1);
+            default:
+                return 0;
+        }
+    }
+
+    /**
+     * read joystick sensor's button state value
+     * @param joystick selected joystick sensor
+     * @return number returns digital value from 0 to 1
+     */
+    //% blockId=magibit_sensor_joystick_button_state_read
+    //% block="Button state of |%joystick|"
+    //% weight=80
+    export function joystickReadButtonStateValue(joystick: Joystick): number {
+        let tmpVal = 0;
+        switch (joystick) {
+            case Joystick.A1:
+                tmpVal =  pins.analogReadPin(AnalogPin.P1);
+                return tmpVal > 1022 ? 1 : 0;
+            case Joystick.A2:
+                tmpVal =  pins.analogReadPin(AnalogPin.P0);
+                return tmpVal > 1022 ? 1 : 0;
+            default:
+                return 0;
+        }
+    }
 
 }
