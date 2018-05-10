@@ -32,6 +32,17 @@ namespace MagibitSensor {
         P16
     }
 
+    export enum AirSensorPins {
+        P13,
+        P16
+    }
+
+    export enum PotentiometerSensorPins {
+        P0,
+        P1,
+        P2
+    }
+
     /**
      * read light sensor's value
      * @param pin sensor's active pin
@@ -152,7 +163,50 @@ namespace MagibitSensor {
         }
     }
 
+    /**
+     * read air temperature sensor's value
+     * @param pin sensor's active pin
+     * @return number returns analog value from 0 to 1023
+     */
+    //% blockId=magibit_sensor_air_temperature_read
+    //% block="Read air temperature(°C) at |%pin|"
+    //% weight=80
+    export function airTemperatureReadValue(pin: AirSensorPins): number {
+        return 0;
+    }
 
+    /**
+     * read air humidity sensor's value
+     * @param pin sensor's active pin
+     * @return number returns analog value from 0 to 1023
+     */
+    //% blockId=magibit_sensor_air_humidity_read
+    //% block="Read air humidity(%) at |%pin|"
+    //% weight=80
+    export function airHumidityReadValue(pin: AirSensorPins): number {
+        return 0;
+    }
+
+    /**
+     * read potentiometer sensor's value
+     * @param pin sensor's active pin
+     * @return number returns analog value from 0 to 1023
+     */
+    //% blockId=magibit_sensor_potentiometer_read
+    //% block="Potentiometer read analog at |%pin|"
+    //% weight=80
+    export function potentiometerReadValue(pin: PotentiometerSensorPins): number {
+        switch (pin) {
+            case PotentiometerSensorPins.P0:
+                return pins.analogReadPin(AnalogPin.P0);
+            case PotentiometerSensorPins.P1:
+                return pins.analogReadPin(AnalogPin.P1);
+            case PotentiometerSensorPins.P2:
+                return pins.analogReadPin(AnalogPin.P2);
+            default:
+                return 0;
+        }
+    }
 
 
 }
