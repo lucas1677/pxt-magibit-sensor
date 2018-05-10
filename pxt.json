@@ -4,7 +4,8 @@
     "description": "MagibitSensor project",
     "license": "MIT",
     "dependencies": {
-        "core": "*"
+        "core": "*",
+        "minode": "github:lucas1677/pxt-minode#"
     },
     "files": [
         "README.md",

@@ -172,7 +172,18 @@ namespace MagibitSensor {
     //% block="Read air temperature(°C) at |%pin|"
     //% weight=80
     export function airTemperatureReadValue(pin: AirSensorPins): number {
-        return 0;
+        let tmpVal = 0;
+        switch (pin) {
+            case AirSensorPins.P13: {
+                tmpVal = minode.DHTGetTemperature(ConnName.D13, DHTTemStyle.MINODE_DHT_CELSIUS);
+                break;
+            }
+            case AirSensorPins.P16: {
+                tmpVal = minode.DHTGetTemperature(ConnName.D16, DHTTemStyle.MINODE_DHT_CELSIUS);
+                break;
+            }
+        }
+        return tmpVal;
     }
 
     /**
@@ -184,7 +195,18 @@ namespace MagibitSensor {
     //% block="Read air humidity(%) at |%pin|"
     //% weight=80
     export function airHumidityReadValue(pin: AirSensorPins): number {
-        return 0;
+        let tmpVal = 0;
+        switch (pin) {
+            case AirSensorPins.P13: {
+                tmpVal = minode.DHTGetHumidity(ConnName.D13);
+                break;
+            }
+            case AirSensorPins.P16: {
+                tmpVal = minode.DHTGetHumidity(ConnName.D16);
+                break;
+            }
+        }
+        return tmpVal;
     }
 
     /**
